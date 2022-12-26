@@ -1,0 +1,215 @@
+-> Retrieve GIT Username
+git config user.name
+
+-> Set GIT Username
+git config --global user.name "Manthan Patel"
+ 
+-> Retrieve GIT Useremail
+git config user.email
+
+-> Set GIT Useremail  
+git config --global user.email "manthan@gmail.com"
+
+~~~
+
+-> Initialize Repository
+git init
+
+-> Track Changes
+git status
+
+-> Moving changes from Working Directory to Staging Area
+git add file1 file2
+
+-> Moving All changes from Working Directory to Staging Area
+git add .
+
+-> Commit Changes
+git commit -m "Commit Message"
+
+-> Commit All Changes Direcly (No need to run git add command)
+git commit -a -m "Commit Message"
+		or
+git commit -am "Commit Message"
+
+-> Redo Last Commit
+git commit --amend
+
+-> Commit History
+git log
+
+-> Commit History in One Line
+git log --oneline
+
+-> Exit Vim Editor
+:wq
+
+~~~
+
+-> List all Branches
+git branch
+
+-> List all Branches with Last Commit Details
+git branch -v
+
+-> Creating New Branch
+git branch <branch-name>
+
+-> Changing Branch
+git switch <branch-name>
+		or
+git checkout <branch-name>
+
+
+-> Create New Branch and Switch to that branch
+git switch -c <branch-name>
+		or
+git checkout -b <branch-name>
+
+
+-> Delete Branch (First u need to switch to other branch except branch u want to delete)
+git branch -D <branch-name>
+
+-> Renaming Branch (First u need to switch to branch that u want to rename)
+git branch -m <new-name>
+
+
+-> Merge any branch(bugfix) to other branch(master)
+git switch master  (first go to destination-branch ~ switch HEAD)
+git merge bugfix  (merge source-branch)
+
+~~~
+
+-> Comparing unstaged changes
+git diff  (Compares Staging Area and Working Directory)
+
+-> Comparing staged & unstaged changes
+git diff HEAD  (Compares Working Directory and Last Commit)
+
+-> Comparing staged changes
+git diff --staged  (Compares Staging Area and Last Commit)
+		or
+git diff --cached  (Compares Staging Area and Last Commit)
+
+-> Comparing Specific File
+git diff <file-name>
+		or
+git diff HEAD <file-name>
+
+-> Comparing Multiple File
+git diff <file1> <file2> <file3>
+		or
+git diff HEAD <file1> <file2> <file3>
+
+-> Comparing Branches
+git diff <branch1>..<branch2>
+		or
+git diff <branch1> <branch2>
+
+-> Comparing Commits
+git diff <commit1>..<commit2>
+		or
+git diff <commit1> <commit2>
+
+~~~
+
+-> Stash all changes(staged and unstaged) and revert in working copy
+git stash
+	or
+git stash save
+
+-> Remove most recently stashed changes in stash and reapply in working copy
+git stash pop
+
+-> Apply stashed changes without removing it from stash
+git stash apply
+
+-> View all stashes
+git stash list
+
+-> Applying Specific stash
+git stash apply stash@{2}
+
+-> Delete particular stash
+git stash drop stash@{2}
+
+-> Clear out all stashes
+git stash clear
+
+~~~
+
+-> Going to Particular commit
+git checkout <commit-hash>
+Ex. git checkout d824w94
+
+-> Going to Previous commits
+git checkout HEAD~1 (goes to 1st previous commit state)
+git checkout HEAD~2 (goes to 2nd previous commit state)
+git checkout HEAD~3 (goes to 3rd previous commit state)
+git checkout HEAD~4 (goes to 4th previous commit state)
+
+
+-> Discarding changes on Specific files
+git checkout HEAD <file-name>
+git checkout HEAD <file1> <file2> <file3>
+		or 
+git checkout -- <file-name>
+git checkout -- <file1> <file2> <file3>
+
+-> Unmodifying changes on Specific files
+git restore <file-name>
+git restore <file1> <file2> <file3>
+
+-> Unmodifying changes on Specific files to Specific commit
+git restore --source HEAD~1 <file-name>
+git restore --source HEAD~1 <file1> <file2> <file3>
+
+
+-> Unstaging file
+git restore --staged <file-name>
+
+
+-> Reset all commits happened after <commit-hash> mentioned, changes will remain in working directory
+git reset <commit-hash>
+Ex. git reset d824w94
+
+-> Reset all commits happened after <commit-hash> mentioned, changes will also removed from working directory
+git reset --hard <commit-hash>
+Ex. git reset --hard d824w94
+
+
+-> Revert <commit-hash> mentioned, this will create new commit with undoing changes
+git revert <commit-hash>
+Ex. git revert d824w94	
+
+~~~
+
+-> Cloning Remote Repository to Local directory
+git clone <url>
+
+-> Viewing Remote
+git remote 
+	or
+git remote -v
+
+-> Adding a new Remote
+git remote add <name> <url>
+Ex. git remote add origin https://github.com/test/test-repo.git
+
+-> Rename Remote
+git remote rename <old-name> <new-name>
+
+-> Remove Remote
+git remote remove <name>
+
+-> Pushing
+git push <remote> <branch>
+Ex. git push origin master
+
+-> Push Local Branch to Different Remote Branch
+git push <remote> <local-branch>:<remote-branch>
+Ex. git push origin dev:master
+
+-> Set upstream of the branch we are pushing
+git push -u origin <branch-name>
+Ex. git push -u origin master
