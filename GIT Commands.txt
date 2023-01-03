@@ -27,7 +27,7 @@ git add .
 -> Commit Changes
 git commit -m "Commit Message"
 
--> Commit All Changes Direcly (No need to run git add command)
+-> Commit All Changes Directly (No need to run git add command)
 git commit -a -m "Commit Message"
 		or
 git commit -am "Commit Message"
@@ -60,19 +60,16 @@ git switch <branch-name>
 		or
 git checkout <branch-name>
 
-
 -> Create New Branch and Switch to that branch
 git switch -c <branch-name>
 		or
 git checkout -b <branch-name>
-
 
 -> Delete Branch (First u need to switch to other branch except branch u want to delete)
 git branch -D <branch-name>
 
 -> Renaming Branch (First u need to switch to branch that u want to rename)
 git branch -m <new-name>
-
 
 -> Merge any branch(bugfix) to other branch(master)
 git switch master  (first go to destination-branch ~ switch HEAD)
@@ -148,7 +145,6 @@ git checkout HEAD~2 (goes to 2nd previous commit state)
 git checkout HEAD~3 (goes to 3rd previous commit state)
 git checkout HEAD~4 (goes to 4th previous commit state)
 
-
 -> Discarding changes on Specific files
 git checkout HEAD <file-name>
 git checkout HEAD <file1> <file2> <file3>
@@ -164,10 +160,8 @@ git restore <file1> <file2> <file3>
 git restore --source HEAD~1 <file-name>
 git restore --source HEAD~1 <file1> <file2> <file3>
 
-
 -> Unstaging file
 git restore --staged <file-name>
-
 
 -> Reset all commits happened after <commit-hash> mentioned, changes will remain in working directory
 git reset <commit-hash>
@@ -176,7 +170,6 @@ Ex. git reset d824w94
 -> Reset all commits happened after <commit-hash> mentioned, changes will also removed from working directory
 git reset --hard <commit-hash>
 Ex. git reset --hard d824w94
-
 
 -> Revert <commit-hash> mentioned, this will create new commit with undoing changes
 git revert <commit-hash>
@@ -213,3 +206,31 @@ Ex. git push origin dev:master
 -> Set upstream of the branch we are pushing
 git push -u origin <branch-name>
 Ex. git push -u origin master
+
+~~~
+
+-> View Remote Branches
+git branch -r
+
+-> Change Remote Branch in Local workspace
+git switch <remote-branch-name>
+Ex. git switch bugfix
+		or
+git checkout --track <remote>/<remote-branch-name>
+Ex. git checkout --track origin/bugfix
+
+~~~
+
+-> Fetching changes from Remote
+git fetch <remote>   (If not specified, <remote> defaults to origin)
+Ex. git fetch origin
+
+-> Fetch only particular Remote Branch
+git fetch <remote> <branch>
+Ex. git fetch origin master
+
+-> Pull remote changes
+git pull <remote> <branch>
+Ex. git pull origin master
+(If not specified, <remote> will default to origin and 
+<branch> will default to whatever tracking connection configured for your current branch)
