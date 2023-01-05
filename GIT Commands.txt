@@ -195,7 +195,7 @@ git remote rename <old-name> <new-name>
 -> Remove Remote
 git remote remove <name>
 
--> Pushing
+-> Pushing Local Code Changes to Remote Branch
 git push <remote> <branch>
 Ex. git push origin master
 
@@ -234,3 +234,26 @@ git pull <remote> <branch>
 Ex. git pull origin master
 (If not specified, <remote> will default to origin and 
 <branch> will default to whatever tracking connection configured for your current branch)
+
+~~~
+
+-> Rebasing (This moves entire bugfix branch so that it begins at tip of master branch)
+git switch bugfix
+git rebase master  (This will rewrite history by creating new commits)
+
+-> Continue Rebase after fixing conflicts
+git rebase --continue
+
+-> Abort Rebase when conflicts occured
+git rebase --abort
+
+-> Interactive Rebase
+git rebase -i HEAD~5  (Here, HEAD~5 means you are trying to edit the last five commits)
+
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message
+# d, drop <commit> = remove commit

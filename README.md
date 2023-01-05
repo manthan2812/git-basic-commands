@@ -1,7 +1,7 @@
 # git-basic-commands
-This repo contains basic git commands mainly used in the day-to-day lives of developers.
+This repo contains basic git commands mainly used in the day-to-day life of developer.
 
-You can find all git commands on ***[this file](/GIT%20Commands.txt)***. It includes following git commands:
+You can find commands in *[this file](/GIT%20Commands.txt)*. It contains following git commands:
 * git init
 * git status
 * git add
@@ -21,3 +21,4 @@ You can find all git commands on ***[this file](/GIT%20Commands.txt)***. It incl
 * git push
 * git fetch
 * git pull
+* git rebase
