@@ -1,0 +1,302 @@
+-> Retrieve Git Username
+git config user.name
+
+-> Set Git Username
+git config --global user.name "Manthan Patel"
+ 
+-> Retrieve Git Useremail
+git config user.email
+
+-> Set Git Useremail  
+git config --global user.email "manthan@gmail.com"
+
+-> Using Visual Studio Code as editor
+git config --global core.editor "code --wait"
+
+~~~
+
+-> Initialize Repository
+git init
+
+-> Track Changes
+git status
+
+-> Moving changes from Working Directory to Staging Area
+git add file1 file2
+
+-> Moving All changes from Working Directory to Staging Area
+git add .
+
+-> Commit Changes
+git commit -m "Commit Message"
+
+-> Commit All Changes Directly (No need to run git add command)
+git commit -a -m "Commit Message"
+		or
+git commit -am "Commit Message"
+
+-> Redo Last Commit
+git commit --amend
+
+-> Commit History
+git log
+
+-> Commit History in One Line
+git log --oneline
+
+-> Exit Vim Editor
+:wq
+
+~~~
+
+-> List all Branches
+git branch
+
+-> List all Branches with Last Commit Details
+git branch -v
+
+-> Creating New Branch
+git branch <branch-name>
+
+-> Changing Branch
+git switch <branch-name>
+		or
+git checkout <branch-name>
+
+-> Create New Branch and Switch to that branch
+git switch -c <branch-name>
+		or
+git checkout -b <branch-name>
+
+-> Delete Branch (First u need to switch to other branch except branch u want to delete)
+git branch -D <branch-name>
+
+-> Renaming Branch (First u need to switch to branch that u want to rename)
+git branch -m <new-name>
+
+-> Merge any branch(bugfix) to other branch(master)
+git switch master  (first go to destination-branch ~ switch HEAD)
+git merge bugfix  (merge source-branch)
+
+~~~
+
+-> Comparing unstaged changes
+git diff  (Compares Staging Area and Working Directory)
+
+-> Comparing staged & unstaged changes
+git diff HEAD  (Compares Working Directory and Last Commit)
+
+-> Comparing staged changes
+git diff --staged  (Compares Staging Area and Last Commit)
+		or
+git diff --cached  (Compares Staging Area and Last Commit)
+
+-> Comparing Specific File
+git diff <file-name>
+		or
+git diff HEAD <file-name>
+
+-> Comparing Multiple File
+git diff <file1> <file2> <file3>
+		or
+git diff HEAD <file1> <file2> <file3>
+
+-> Comparing Branches
+git diff <branch1>..<branch2>
+		or
+git diff <branch1> <branch2>
+
+-> Comparing Commits
+git diff <commit1>..<commit2>
+		or
+git diff <commit1> <commit2>
+
+~~~
+
+-> Stash all changes(staged and unstaged) and revert in working copy
+git stash
+	or
+git stash save
+
+-> Remove most recently stashed changes in stash and reapply in working copy
+git stash pop
+
+-> Apply stashed changes without removing it from stash
+git stash apply
+
+-> View all stashes
+git stash list
+
+-> Applying Specific stash
+git stash apply stash@{2}
+
+-> Delete particular stash
+git stash drop stash@{2}
+
+-> Clear out all stashes
+git stash clear
+
+~~~
+
+-> Going to Particular commit
+git checkout <commit-hash>
+Ex. git checkout d824w94
+
+-> Going to Previous commits
+git checkout HEAD~1 (goes to 1st previous commit state)
+git checkout HEAD~2 (goes to 2nd previous commit state)
+git checkout HEAD~3 (goes to 3rd previous commit state)
+git checkout HEAD~4 (goes to 4th previous commit state)
+
+-> Discarding changes on Specific files
+git checkout HEAD <file-name>
+git checkout HEAD <file1> <file2> <file3>
+		or 
+git checkout -- <file-name>
+git checkout -- <file1> <file2> <file3>
+
+-> Unmodifying changes on Specific files
+git restore <file-name>
+git restore <file1> <file2> <file3>
+
+-> Unmodifying changes on Specific files to Specific commit
+git restore --source HEAD~1 <file-name>
+git restore --source HEAD~1 <file1> <file2> <file3>
+
+-> Unstaging file
+git restore --staged <file-name>
+
+-> Reset all commits happened after <commit-hash> mentioned, changes will remain in working directory
+git reset <commit-hash>
+Ex. git reset d824w94
+
+-> Reset all commits happened after <commit-hash> mentioned, changes will also removed from working directory
+git reset --hard <commit-hash>
+Ex. git reset --hard d824w94
+
+-> Revert <commit-hash> mentioned, this will create new commit with undoing changes
+git revert <commit-hash>
+Ex. git revert d824w94	
+
+~~~
+
+-> Cloning Remote Repository to Local directory
+git clone <url>
+
+-> Viewing Remote
+git remote 
+	or
+git remote -v
+
+-> Adding a new Remote
+git remote add <name> <url>
+Ex. git remote add origin https://github.com/test/test-repo.git
+
+-> Rename Remote
+git remote rename <old-name> <new-name>
+
+-> Remove Remote
+git remote remove <name>
+
+-> Pushing Local Code Changes to Remote Branch
+git push <remote> <branch>
+Ex. git push origin master
+
+-> Push Local Branch to Different Remote Branch
+git push <remote> <local-branch>:<remote-branch>
+Ex. git push origin dev:master
+
+-> Set upstream of the branch we are pushing
+git push -u origin <branch-name>
+Ex. git push -u origin master
+
+~~~
+
+-> View Remote Branches
+git branch -r
+
+-> Change Remote Branch in Local workspace
+git switch <remote-branch-name>
+Ex. git switch bugfix
+		or
+git checkout --track <remote>/<remote-branch-name>
+Ex. git checkout --track origin/bugfix
+
+~~~
+
+-> Fetching changes from Remote
+git fetch <remote>   (If not specified, <remote> defaults to origin)
+Ex. git fetch origin
+
+-> Fetch only particular Remote Branch
+git fetch <remote> <branch>
+Ex. git fetch origin master
+
+-> Pull remote changes
+git pull <remote> <branch>
+Ex. git pull origin master
+(If not specified, <remote> will default to origin and 
+<branch> will default to whatever tracking connection configured for your current branch)
+
+~~~
+
+-> Rebasing (This moves entire bugfix branch so that it begins at tip of master branch)
+git switch bugfix
+git rebase master  (This will rewrite history by creating new commits)
+
+-> Continue Rebase after fixing conflicts
+git rebase --continue
+
+-> Abort Rebase when conflicts occured
+git rebase --abort
+
+-> Interactive Rebase
+git rebase -i HEAD~5  (Here, HEAD~5 means you are trying to edit the last five commits)
+
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message
+# d, drop <commit> = remove commit
+
+~~~
+
+-> View Tags
+git tag
+
+-> View Tags by Particular Pattern
+git tag -l "*beta*"  (this will list all tags containing beta in their name)
+
+-> Check out Tag
+git checkout <tag-name>
+
+-> Compare Tags
+git diff <tag1> <tag2>
+
+-> Create Lightweight Tag
+git tag <tag-name>
+
+-> Create Annotated Tag
+git tag -a <tag-name>
+
+-> To see Tag Information
+git show <tag-name>
+
+-> Create Tag of previous commit
+git tag <tag-name> <commit-hash>
+			or
+git tag -a <tag-name> <commit-hash>
+
+-> Replace/Reuse Tag with Force
+git tag -f <tag-name>  (Forcefully change existing tag)
+
+-> Delete Tag
+git tag -d <tag-name>
+
+-> Push Single Tag
+git push <remote> <tag-name>
+
+-> Push All Tags
+git push <remote> --tags
