@@ -1,13 +1,13 @@
--> Retrieve GIT Username
+-> Retrieve Git Username
 git config user.name
 
--> Set GIT Username
+-> Set Git Username
 git config --global user.name "Manthan Patel"
  
--> Retrieve GIT Useremail
+-> Retrieve Git Useremail
 git config user.email
 
--> Set GIT Useremail  
+-> Set Git Useremail  
 git config --global user.email "manthan@gmail.com"
 
 ~~~
@@ -257,3 +257,43 @@ git rebase -i HEAD~5  (Here, HEAD~5 means you are trying to edit the last five c
 # s, squash <commit> = use commit, but meld into previous commit
 # f, fixup <commit> = like "squash", but discard this commit's log message
 # d, drop <commit> = remove commit
+
+~~~
+
+-> View Tags
+git tag
+
+-> View Tags by Particular Pattern
+git tag -l "*beta*"  (this will list all tags containing beta in their name)
+
+-> Check out Tag
+git checkout <tag-name>
+
+-> Compare Tags
+git diff <tag1> <tag2>
+
+-> Create Lightweight Tag
+git tag <tag-name>
+
+-> Create Annotated Tag
+git tag -a <tag-name>
+
+-> To see Tag Information
+git show <tag-name>
+
+-> Create Tag of previous commit
+git tag <tag-name> <commit-hash>
+			or
+git tag -a <tag-name> <commit-hash>
+
+-> Replace/Reuse Tag with Force
+git tag -f <tag-name>  (Forcefully change existing tag)
+
+-> Delete Tag
+git tag -d <tag-name>
+
+-> Push Single Tag
+git push <remote> <tag-name>
+
+-> Push All Tags
+git push <remote> --tags
