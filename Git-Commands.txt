@@ -300,3 +300,16 @@ git push <remote> <tag-name>
 
 -> Push All Tags
 git push <remote> --tags
+
+~~~
+
+-> Git Reflog (Local Workspace Advanced History)
+git reflog show HEAD
+		or
+git reflog show master
+
+~~~
+
+-> Setup New Git Alias
+Ex. git config --global alias.s status
+Ex. git config --global alias.cm commit -m

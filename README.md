@@ -23,3 +23,4 @@ You can find commands in *[this file](Git-Commands.txt)*. It contains following 
 * git pull
 * git rebase
 * git tag
+* git reflog
